@@ -55,11 +55,16 @@ android {
         }
     }
 }
+
+// Kotlin compiler options via the unified compilerOptions DSL (KGP 2.2+).
+// This replaces the deprecated android.kotlinOptions { jvmTarget = "17" }
+// block, which now fails script compilation with Kotlin 2.4.
 kotlin {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)
     }
 }
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines.android)
