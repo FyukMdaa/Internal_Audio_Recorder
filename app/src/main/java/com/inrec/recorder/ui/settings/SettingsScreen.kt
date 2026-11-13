@@ -65,11 +65,11 @@ fun SettingsScreen(settings: AppSettings, onBack: () -> Unit) {
                 },
             )
         },
-    ) { padding ->
+    ) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding)
+                .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 16.dp),
         ) {

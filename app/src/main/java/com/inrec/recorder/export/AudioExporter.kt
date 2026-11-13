@@ -309,7 +309,9 @@ object AudioExporter {
                                     }
                                     encoded.position(bufferInfo.offset)
                                     encoded.limit(bufferInfo.offset + bufferInfo.size)
-                                    out.write(encoded)
+                                    val flacChunk = ByteArray(encoded.remaining())
+                                    encoded.get(flacChunk)
+                                    out.write(flacChunk)
                                 }
                                 codec.releaseOutputBuffer(outIndex, false)
                                 if (bufferInfo.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM != 0) {

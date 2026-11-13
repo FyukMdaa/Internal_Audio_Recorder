@@ -13,7 +13,7 @@ import android.media.AudioAttributes
 import android.media.AudioFormat
 import android.media.AudioPlaybackCaptureConfiguration
 import android.media.AudioRecord
-import android.media.MediaProjection
+import android.media.projection.MediaProjection
 import android.media.projection.MediaProjectionManager
 import android.os.Build
 import android.os.Handler
@@ -181,7 +181,9 @@ class CaptureService : Service() {
         if (capturing) return
         try {
             val manager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
+            // Nullable in recent API stubs: reject a failed consent handshake here.
             val projection = manager.getMediaProjection(resultCode, data)
+                ?: throw IllegalStateException(getString(R.string.error_capture_start))
             this.projection = projection
             projection.registerCallback(projectionCallback, mainHandler)
 

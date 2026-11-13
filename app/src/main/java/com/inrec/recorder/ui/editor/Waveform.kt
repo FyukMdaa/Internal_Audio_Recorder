@@ -223,7 +223,7 @@ fun WaveformMinimap(
                 detectHorizontalDragGestures { change, dragAmount ->
                     change.consume()
                     val msPerPx = durationMs / size.width.coerceAtLeast(1)
-                    onViewportMoved((-dragAmount.x * msPerPx).roundToLong())
+                    onViewportMoved((-dragAmount * msPerPx).roundToLong())
                 }
             }
             .pointerInput(durationMs) {

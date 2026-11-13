@@ -3,6 +3,7 @@ package com.inrec.recorder.audio
 import android.media.AudioAttributes
 import android.media.AudioFormat
 import android.media.AudioTrack
+import java.io.File
 import java.io.RandomAccessFile
 import kotlin.concurrent.thread
 

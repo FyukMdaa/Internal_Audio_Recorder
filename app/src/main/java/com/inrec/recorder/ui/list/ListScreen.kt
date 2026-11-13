@@ -53,8 +53,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.inrec.recorder.ui.RenameDialog
 import com.inrec.recorder.R
+import com.inrec.recorder.RecordActivity
 import com.inrec.recorder.capture.CaptureService
-import com.inrec.recorder.capture.RecordActivity
 import com.inrec.recorder.capture.RecordState
 import com.inrec.recorder.capture.RecorderState
 import com.inrec.recorder.data.AppSettings
@@ -78,7 +78,7 @@ fun ListScreen(
     var recordState by remember { mutableStateOf(RecorderState.state) }
     var tick by remember { mutableIntStateOf(0) }
     DisposableEffect(Unit) {
-        val listener = {
+        val listener: () -> Unit = {
             recordState = RecorderState.state
             tick++
         }
