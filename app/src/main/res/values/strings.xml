@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Internal Audio Recorder</string>
+
+    <!-- Quick Settings tile -->
+    <string name="qs_tile_label">Internal audio</string>
+    <string name="qs_tile_idle">Tap to record</string>
+    <string name="qs_tile_recording">Recording…</string>
+
+    <!-- Capture service notifications -->
+    <string name="notif_channel_name">Recording</string>
+    <string name="notif_title">Recording internal audio</string>
+    <string name="notif_pause">Pause</string>
+    <string name="notif_resume">Resume</string>
+    <string name="notif_stop">Stop</string>
+    <string name="notif_elapsed_format">Recording %1$d:%2$02d</string>
+
+    <!-- Errors -->
+    <string name="error_capture_start">Failed to start audio capture. Try again.</string>
+    <string name="error_recording_missing">Recording not found.</string>
+    <string name="error_silence_scan">Silence analysis failed.</string>
+
+    <!-- Generic -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+
+    <!-- Menus / actions -->
+    <string name="menu_settings">Settings</string>
+    <string name="menu_more">More options</string>
+    <string name="action_start_recording">Start recording</string>
+    <string name="action_open">Open</string>
+    <string name="action_rename">Rename</string>
+    <string name="action_share">Share</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_undo">Undo</string>
+    <string name="action_redo">Redo</string>
+
+    <!-- Recording states -->
+    <string name="state_preparing">Preparing…</string>
+    <string name="state_recording">Recording internal audio</string>
+    <string name="state_paused">Paused</string>
+
+    <!-- Recordings list -->
+    <string name="list_empty_title">No recordings yet</string>
+    <string name="list_empty_body">Tap the Start recording button or add the tile from Quick Settings. Playback audio is captured in stereo, just like screen recording.</string>
+    <string name="list_item_meta">%1$s · %2$s · %3$s</string>
+
+    <!-- Dialogs -->
+    <string name="delete_dialog_title">Delete recording?</string>
+    <string name="delete_dialog_body">“%1$s” will be permanently removed.</string>
+    <string name="delete_confirm">Delete</string>
+    <string name="rename_dialog_title">Rename</string>
+    <string name="rename_field_label">Title</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Silence detection settings</string>
+    <string name="settings_reset">Reset</string>
+    <string name="settings_intro">These parameters control the cut suggestions shown in the waveform editor. You can always re-run detection from the editor.</string>
+    <string name="settings_threshold_title">Silence threshold: %1$d dB</string>
+    <string name="settings_threshold_desc">Audio below this level counts as silence. Lower (more negative) values keep quieter passages.</string>
+    <string name="settings_min_silence_title">Minimum silence: %1$.1f s</string>
+    <string name="settings_min_silence_desc">Only gaps at least this long are proposed for cutting.</string>
+    <string name="settings_padding_title">Padding: %1$.2f s</string>
+    <string name="settings_padding_desc">Audio kept before and after each cut so words are not clipped.</string>
+    <string name="settings_capture_note_title">About internal audio capture</string>
+    <string name="settings_capture_note_body">Apps can opt out of being captured, and DRM-protected playback (some streaming services) is never captured. Media, game and unknown audio usages are captured.</string>
+
+    <!-- Editor -->
+    <string name="editor_generating_waveform">Generating waveform…</string>
+    <string name="editor_selection_info">%1$s – %2$s (%3$.1f s)</string>
+    <string name="editor_cut_selection">Cut selection</string>
+    <string name="editor_keep_selection">Keep only selection</string>
+    <string name="editor_restore_all">Restore all</string>
+    <string name="editor_suggestions_title">Silence cut suggestions</string>
+    <string name="editor_suggestions_params">threshold %1$d dB · min %2$.1f s</string>
+    <string name="editor_toggle_suggestions">Toggle suggestions</string>
+    <string name="editor_detect_silence">Detect silence</string>
+    <string name="editor_redetect_silence">Re-detect silence</string>
+    <string name="editor_no_suggestions">No silence long enough to cut was found. Adjust the threshold or minimum silence in Settings and detect again.</string>
+    <string name="editor_suggestion_row">%1$s – %2$s (%3$.1f s)</string>
+    <string name="editor_select_all">Select all</string>
+    <string name="editor_select_none">Select none</string>
+    <string name="editor_apply_cuts">Apply cuts (%1$d)</string>
+    <string name="editor_time_edited">%1$s / %2$s · after cuts %3$s</string>
+    <string name="editor_export">Save…</string>
+
+    <!-- Export -->
+    <string name="export_dialog_title">Save as</string>
+    <string name="export_format_label">%1$s (.%2$s)</string>
+    <string name="export_format_unsupported">Not available on this device</string>
+    <string name="export_filename_label">File name</string>
+    <string name="export_extension_note">The file is encoded in the selected format. You can freely change the name and extension in the save dialog.</string>
+    <string name="export_done">Saved successfully.</string>
+    <string name="export_error">Export failed.</string>
+</resources>

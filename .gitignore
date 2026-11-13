@@ -1,0 +1,21 @@
+# Gradle
+.gradle/
+build/
+app/build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Secrets — never commit
+release.keystore
+*.jks
+*.keystore
+
+# Generated recordings (in case of running on a device/emulator share)
+*.peaks
