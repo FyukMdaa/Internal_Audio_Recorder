@@ -57,6 +57,22 @@ keytool -genkeypair -v -keystore release.keystore -alias inrec \
 base64 -w0 release.keystore   # 出力を RELEASE_KEYSTORE_BASE64 に貼り付け
 ```
 
+#### トラブルシューティング: `Task 'assembleDebug' not found`
+
+このエラーは Gradle 自体は正常に起動しているが、**Android プラグインがどのモジュールにも適用されていない**（＝リポジトリに `app/build.gradle.kts` が存在しない）場合に発生します。リポジトリのルートに次のファイルが揃っているか確認してください：
+
+```
+settings.gradle.kts
+build.gradle.kts
+gradle/libs.versions.toml
+gradle/wrapper/gradle-wrapper.jar
+app/build.gradle.kts          ← これが無いと本エラーになる
+app/src/main/AndroidManifest.xml
+app/src/main/java/...         （Kotlin ソース一式）
+```
+
+zip を展開した際は、中の `InternalAudioRecorder/` フォルダ自体ではなく **その中身** をリポジトリのルートに push してください（`InternalAudioRecorder/settings.gradle.kts` のような二重構成でも同じエラーになります）。ワークフローは最初に「Verify project layout」ステップでこの状態を検出し、どのファイルが欠けているかを明示します。
+
 ### ローカルビルド
 
 要件: JDK 17、Android SDK(platform 37)。
@@ -112,6 +128,10 @@ base64 -w0 release.keystore   # 出力を RELEASE_KEYSTORE_BASE64 に貼り付�
 ### Local build
 
 Requires JDK 17 and the Android SDK (platform 37): `./gradlew assembleDebug`.
+
+#### Troubleshooting: `Task 'assembleDebug' not found`
+
+This means Gradle started fine but the Android plugin was never applied — almost always because `app/build.gradle.kts` (or the whole `app/` folder) is missing from the repository root, or the zip was pushed with its inner `InternalAudioRecorder/` folder as a subfolder instead of pushing its **contents**. The `Verify project layout` step in both workflows fails fast and prints exactly which file is missing.
 
 ### Project layout
 
